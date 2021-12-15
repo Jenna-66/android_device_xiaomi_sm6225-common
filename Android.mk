@@ -31,22 +31,6 @@ ALL_DEFAULT_INSTALLED_MODULES += \
     $(BT_FIRMWARE_MOUNT_POINT) \
     $(DSP_MOUNT_POINT)
 
-EGL_LIB_SYMLINKS := $(TARGET_OUT_VENDOR)/lib
-$(EGL_LIB_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "EGL lib symlinks: $@"
-	@mkdir -p $@
-	$(hide) ln -sf egl/libEGL_adreno.so $@/libEGL_adreno.so
-	$(hide) ln -sf egl/libGLESv2_adreno.so $@/libGLESv2_adreno.so
-	$(hide) ln -sf egl/libq3dtools_adreno.so $@/libq3dtools_adreno.so
-
-EGL_LIB64_SYMLINKS := $(TARGET_OUT_VENDOR)/lib64
-$(EGL_LIB64_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "EGL lib64 symlinks: $@"
-	@mkdir -p $@
-	$(hide) ln -sf egl/libEGL_adreno.so $@/libEGL_adreno.so
-	$(hide) ln -sf egl/libGLESv2_adreno.so $@/libGLESv2_adreno.so
-	$(hide) ln -sf egl/libq3dtools_adreno.so $@/libq3dtools_adreno.so
-
 ifneq ($(TARGET_IS_TABLET),true)
 IMS_LIBS := libimscamera_jni.so libimsmedia_jni.so
 IMS_SYMLINKS := $(addprefix $(TARGET_OUT_SYSTEM_EXT_APPS_PRIVILEGED)/ims/lib/arm64/,$(notdir $(IMS_LIBS)))
@@ -65,6 +49,6 @@ $(WFD_SERVICE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@mkdir -p $@
 	$(hide) ln -sf /system_ext/lib64/libwfdnative.so $@/libwfdnative.so
 
-ALL_DEFAULT_INSTALLED_MODULES += $(EGL_LIB_SYMLINKS) $(EGL_LIB64_SYMLINKS) $(WFD_SERVICE_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(WFD_SERVICE_SYMLINKS)
 
 endif
