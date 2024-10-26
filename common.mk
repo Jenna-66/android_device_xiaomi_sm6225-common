@@ -389,6 +389,9 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-3.9.1-vendorcompat \
     librmnetctl
 
+# Rules
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal \
