@@ -375,6 +375,9 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/misc/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# QCOM
+TARGET_BOARD_PLATFORM := bengal
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
