@@ -282,6 +282,9 @@ $(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
 $(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
 $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 
+# microG
+-include vendor/microg/vendor_microg.mk
+
 # Media
 PRODUCT_PACKAGES += \
     libavservices_minijail \
