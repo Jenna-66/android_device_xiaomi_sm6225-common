@@ -273,15 +273,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light-service.lineage
 
-# Lineage Health
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
-
-$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/qcom-battery/input_suspend)
-$(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
-$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
-$(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
-
 # microG
 -include vendor/microg/vendor_microg.mk
 
@@ -374,6 +365,9 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/misc/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# QCOM
+TARGET_BOARD_PLATFORM := bengal
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
@@ -384,6 +378,9 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat \
     librmnetctl
+
+# Rules
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 
 # Sensors
 PRODUCT_PACKAGES += \
