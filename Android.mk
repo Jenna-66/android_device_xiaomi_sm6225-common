@@ -31,18 +31,6 @@ ALL_DEFAULT_INSTALLED_MODULES += \
     $(BT_FIRMWARE_MOUNT_POINT) \
     $(DSP_MOUNT_POINT)
 
-ifneq ($(TARGET_IS_TABLET),true)
-IMS_LIBS := libimscamera_jni.so libimsmedia_jni.so
-IMS_SYMLINKS := $(addprefix $(TARGET_OUT_SYSTEM_EXT_APPS_PRIVILEGED)/ims/lib/arm64/,$(notdir $(IMS_LIBS)))
-$(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "IMS lib link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /system_ext/lib64/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
-endif
-
 WFD_SERVICE_SYMLINKS := $(TARGET_OUT_SYSTEM_EXT_APPS_PRIVILEGED)/WfdService/lib/arm64
 $(WFD_SERVICE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WFD service lib link: $@"
