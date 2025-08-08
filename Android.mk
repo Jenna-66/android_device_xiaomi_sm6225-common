@@ -31,12 +31,4 @@ ALL_DEFAULT_INSTALLED_MODULES += \
     $(BT_FIRMWARE_MOUNT_POINT) \
     $(DSP_MOUNT_POINT)
 
-WFD_SERVICE_SYMLINKS := $(TARGET_OUT_SYSTEM_EXT_APPS_PRIVILEGED)/WfdService/lib/arm64
-$(WFD_SERVICE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "WFD service lib link: $@"
-	@mkdir -p $@
-	$(hide) ln -sf /system_ext/lib64/libwfdnative.so $@/libwfdnative.so
-
-ALL_DEFAULT_INSTALLED_MODULES += $(WFD_SERVICE_SYMLINKS)
-
 endif
