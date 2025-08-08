@@ -39,10 +39,6 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
-# ANT+
-PRODUCT_PACKAGES += \
-    AntHalService-Soong
-
 # Audio
 PRODUCT_PACKAGES += \
     XiaomiDolby
